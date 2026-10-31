@@ -22,7 +22,7 @@ var apk391Sources = []apk391SourceSpec{
  {"jiaoguo","角果","maccms","haijiao126.cc"},
  {"zhenguo","贞果","maccms","zhenshi27.xyz"},
  {"caoguo","草果","caoguo","ccctv01.top"},
- {"xueguo","学果","maccms","xyxs.buzz"},
+ {"xueguo","学果","maccms","n3m.xyxs.shop"},
  {"av2","二果","av2","2av.is"},
  {"huiguo","会果","maccms","guochan01.sbs"},
  {"liaoguo","撩果","maccms","xslrxx.mom"},
