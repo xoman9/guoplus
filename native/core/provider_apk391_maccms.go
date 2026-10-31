@@ -662,7 +662,13 @@ func (d *Downloader) fetchApk391CatalogPage(ctx context.Context,source string,pa
  for _,path:=range routes{
   if err:=ctx.Err();err!=nil{return nil,false,fmt.Errorf("%s 分页请求超时，请重试: %w",spec.Name,err)}
   doc,_,err:=d.apk391Page(ctx,source,path)
-  if err!=nil{failure=err;continue}
+  if err!=nil{
+   // A browser challenge is not a missing taxonomy path. Avoid probing
+   // alternate category URLs while the Xueguo host is rejecting requests.
+   if source=="xueguo" && strings.Contains(err.Error(),"HTTP 403") {return nil,false,err}
+   failure=err
+   continue
+  }
   rows:=d.apk391EnrichSuspects(ctx,source,doc,apk391Cards(doc,source))
   if len(rows)>0{return rows,query=="" && apk391HasNextPage(doc,page),nil}
   failure=fmt.Errorf("%s 网页无影片：%s",spec.Name,path)
