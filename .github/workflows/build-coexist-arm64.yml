@@ -1,6 +1,10 @@
 name: Build coexist ARM64 APK
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-coexist-arm64.yml'
   pull_request:
     paths:
       - '.github/workflows/build-coexist-arm64.yml'
